@@ -15,9 +15,8 @@ module Hamlet
     end
   
     def parse_html(key, type)
-      if html = @_haml_locals[key.to_sym]
-        template_class = "Hamlet::Template::#{type.to_s.camelcase}".constantize
-        template = template_class.new(self, html)
+      if html = @_haml_locals[key.to_sym] and not Hamlet.template(type).nil?
+        template = Hamlet.template(type).new(self, html)
         template.container do
           template.chunks.each do |chunk|
             template.process_chunk(chunk)
