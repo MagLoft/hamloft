@@ -7,7 +7,7 @@ module Hamlet
 
     # styles
     def asset(url)
-      "#{Haml::Options.defaults[:asset_uri]}/#{url}"
+      "#{Hamlet::Options.defaults[:asset_uri]}/#{url}"
     end
   
     def variable(key, default=false)
