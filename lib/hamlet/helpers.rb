@@ -161,7 +161,7 @@ module Hamlet
         options = {}
       end
       widget_block(Widget::Heading.new(options)) do |widget|
-        haml_tag :header, :class => "#{widget.options[:style]} align-#{widget.options[:align]}" do
+        haml_tag :header, :class => "#{widget.options[:style]} align-#{widget.options[:align]}", style: style_string(widget.options, :margin, :padding) do
           haml_tag widget.options[:type], :class => "_typeloft_editable _typeloft_widget_autoselect" do
             haml_concat(contents) if contents
             block.call if block
