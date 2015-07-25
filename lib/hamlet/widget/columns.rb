@@ -3,15 +3,17 @@ module Hamlet
     class Columns < Base
       attr_reader :columns
       attr_reader :column_count
+      attr_reader :total_columns
 
       def initialize(options)
         super(options)
         @column_count = 0
         column_array = @options[:columns].to_s.split("x")
         if column_array.length == 1
-          col_count = column_array[0].to_i
-          @columns = Array.new(col_count) { 12 / col_count }
+          @total_columns = column_array[0].to_i
+          @columns = Array.new(@total_columns) { 12 / @total_columns }
         else
+          @total_columns = column_array.length
           @columns = column_array
         end
       end

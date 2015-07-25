@@ -72,7 +72,7 @@ module Hamlet
       # get and increase span
       next_span = row.next_span
       if next_span
-        haml_tag :div, :class => "column col-#{next_span} col-#{row.options[:collapse_options]}-#{next_span}" do
+        haml_tag :div, :class => "column col-12 col-tablet-#{next_span} col-#{row.options[:collapse_options]}-#{next_span}" do
           block.call if block
           drop_container
         end
@@ -87,6 +87,22 @@ module Hamlet
       widget_block(Widget::Columns.new(options)) do |widget|
         haml_tag :div, widget.row_options do
           block.call(widget) if block
+        end
+      end
+    end
+    
+    def columns_widget_compose(key, options={}, &block)
+      columns_widget = Widget::Columns.new(options)
+      items = variable(key, [])
+      # calculate row and column count
+      row_count = (items.length.to_f / columns_widget.total_columns).ceil
+      col_count = columns_widget.total_columns
+      (0...row_count).each do |row_index|
+        columns_widget(options) do |row|
+          (0...col_count).each do |col_index|
+            index = (row_index * col_count) + col_index
+            block.call(row, items[index]) if not items[index].nil?
+          end
         end
       end
     end
@@ -189,7 +205,7 @@ module Hamlet
         options = {}
       end
       widget_block(Widget::Button.new(options)) do |widget|
-        haml_tag :a, class: "btn btn-#{widget.options[:style]} #{widget.options[:type]} #{widget.options[:size]} _typeloft_editable", href: (widget.options[:href] or "#") do
+        haml_tag :a, class: "btn btn-#{widget.options[:style]} #{widget.options[:type]} #{widget.options[:size]} _typeloft_editable", href: (widget.options[:href] or "#"), style: style_string(widget.options, :margin, :padding) do
           haml_concat(contents) if contents
           block.call if block
         end
