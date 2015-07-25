@@ -9,6 +9,7 @@ module Hamlet
       def defaults
         {
           style: "img-responsive",
+          align: "center",
           source: false,
           magnify: false,
           margin_bottom: "0"

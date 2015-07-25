@@ -147,7 +147,7 @@ module Hamlet
   
     def image_widget_link(options={})
       widget_block(Widget::Image.new(options)) do |widget|
-        haml_tag :div, :class => "image-widget" do
+        haml_tag :div, :class => "image-widget align-#{widget.options[:align]}" do
           link options[:href] do
             haml_tag :img, style: style_string(widget.options, :margin, :padding), class: "image #{widget.options[:style]} #{widget.options[:magnify] ? "magnific-image" : ""}", src: widget.options[:source]
           end
@@ -164,7 +164,7 @@ module Hamlet
 
     def image_widget(options={})
       widget_block(Widget::Image.new(options)) do |widget|
-        haml_tag :div, :class => "image-widget", style: style_string(widget.options, :margin, :padding) do
+        haml_tag :div, :class => "image-widget align-#{widget.options[:align]}", style: style_string(widget.options, :margin, :padding) do
           haml_tag :img, class: "image #{widget.options[:style]} #{widget.options[:magnify] ? "magnific-image" : ""}", src: widget.options[:source]
           haml_tag :div, class: "image-drop-target"
         end
