@@ -22,7 +22,7 @@ module Hamlet
   @@_templates = {}
   
   def self.render(haml, variables={})
-    Hamlet::Engine.new(haml).render(Object.new, variables)
+    Hamlet::Engine.new(haml, remove_whitespace: true).render(Object.new, variables)
   end
   
   def self.register_template(key, template)
