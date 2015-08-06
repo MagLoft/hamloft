@@ -1,2 +1,2 @@
-[Hamlet](http://bitbucket.org/magloft/hamlet/) - MagLoft HAML Template Kit
+[Hamloft](http://bitbucket.org/magloft/hamloft/) - MagLoft HAML Template Kit
 ==========================================================================

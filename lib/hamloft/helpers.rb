@@ -1,13 +1,13 @@
-module Hamlet
+module Hamloft
   module Helpers
 
     def style_string(options, *args, &block)
-      Hamlet::StyleBuilder.new(options, args).process(block)
+      Hamloft::StyleBuilder.new(options, args).process(block)
     end
 
     # styles
     def asset(url)
-      "#{Hamlet::Options.defaults[:asset_uri]}/themes/#{@_haml_locals[:theme]}/#{url}"
+      "#{Hamloft::Options.defaults[:asset_uri]}/themes/#{@_haml_locals[:theme]}/#{url}"
     end
   
     def variable(key, default=false)
@@ -15,8 +15,8 @@ module Hamlet
     end
   
     def parse_html(key, type)
-      if html = @_haml_locals[key.to_sym] and not Hamlet.template(type).nil?
-        template = Hamlet.template(type).new(self, html)
+      if html = @_haml_locals[key.to_sym] and not Hamloft.template(type).nil?
+        template = Hamloft.template(type).new(self, html)
         template.container do
           template.chunks.each do |chunk|
             template.process_chunk(chunk)

@@ -1,16 +1,16 @@
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'hamlet/version'
+require 'hamloft/version'
 
 Gem::Specification.new do |s|
-  s.name        = "hamlet"
-  s.version     = Hamlet::VERSION
+  s.name        = "hamloft"
+  s.version     = Hamloft::VERSION
   s.licenses    = ["BSD-3-Clause"]
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Tobias Strebitzer"]
   s.email       = ["tobias.strebitzer@magloft.com"]
   s.homepage    = "http://www.magloft.com"
-  s.summary     = "Hamlet - MagLoft Widget Parser."
+  s.summary     = "Hamloft - MagLoft Widget Parser."
   s.description = "This gem contains template built parser for creating MagLoft theme templates."
   s.required_rubygems_version = '>= 2.4.7'
   s.add_runtime_dependency "bundler", "1.10.5"

@@ -1,4 +1,4 @@
-module Hamlet
+module Hamloft
   class Template
     attr_accessor :haml, :html, :doc
     

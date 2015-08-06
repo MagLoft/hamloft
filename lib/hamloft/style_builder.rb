@@ -1,4 +1,4 @@
-module Hamlet
+module Hamloft
   class StyleBuilder
     attr_accessor :options
     attr_accessor :styles

@@ -1,7 +1,7 @@
-module Hamlet
+module Hamloft
   module Widget
     class Base
-      include Hamlet::Helpers
+      include Hamloft::Helpers
       attr_accessor :options
 
       def identifier

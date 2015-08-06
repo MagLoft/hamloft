@@ -1,4 +1,4 @@
-class TumblrTemplate < Hamlet::Template
+class TumblrTemplate < Hamloft::Template
   
   def chunks
     self.doc.children

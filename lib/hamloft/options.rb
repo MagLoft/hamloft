@@ -1,4 +1,4 @@
-module Hamlet
+module Hamloft
   class Options
 
     @defaults = {

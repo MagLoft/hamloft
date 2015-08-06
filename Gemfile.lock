@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    hamlet (0.1.0)
+    hamloft (0.1.0)
       activesupport (= 4.2.3)
       bundler (= 1.10.5)
       haml (= 4.0.6)
@@ -68,7 +68,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  hamlet!
+  hamloft!
   pry (= 0.10.1)
   rspec (= 3.3.0)
   rubocop (= 0.32.1)

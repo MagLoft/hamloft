@@ -1,4 +1,4 @@
-module Hamlet
+module Hamloft
   class Engine < Haml::Engine
     
     def render(scope = Object.new, locals = {}, &block)
@@ -17,7 +17,7 @@ module Hamlet
 
       scope_object.instance_eval do
         extend Haml::Helpers
-        extend Hamlet::Helpers
+        extend Hamloft::Helpers
         @haml_buffer = buffer
       end
       begin

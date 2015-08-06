@@ -1,4 +1,4 @@
-module Hamlet
+module Hamloft
   module Widget
     class Columns < Base
       attr_reader :columns
