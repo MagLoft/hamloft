@@ -12,8 +12,6 @@ Gem::Specification.new do |s|
   s.homepage    = "http://www.magloft.com"
   s.summary     = "Hamloft - MagLoft Widget Parser."
   s.description = "This gem contains template built parser for creating MagLoft theme templates."
-  s.required_rubygems_version = '>= 2.4.7'
-  s.add_runtime_dependency "bundler", "~> 1.10"
   s.add_runtime_dependency 'haml', "~> 4.0"
   s.add_runtime_dependency "activesupport", "~> 4.2"
   s.add_runtime_dependency "nokogiri", "~> 1.6"
