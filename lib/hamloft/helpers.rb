@@ -72,7 +72,8 @@ module Hamloft
       # get and increase span
       next_span = row.next_span
       if next_span
-        haml_tag :div, :class => "column col-12 col-tablet-#{next_span} col-#{row.options[:collapse_options]}-#{next_span}" do
+        phone_cols = (row.options[:collapse_options] == "xs") ? next_span : "12"
+        haml_tag :div, :class => "column col-#{phone_cols} col-tablet-#{next_span} col-#{row.options[:collapse_options]}-#{next_span}" do
           block.call if block
           drop_container
         end
