@@ -206,7 +206,12 @@ module Hamloft
         options = {}
       end
       widget_block(Widget::Button.new(options)) do |widget|
-        haml_tag :a, class: "btn btn-#{widget.options[:style]} #{widget.options[:type]} #{widget.options[:size]} _typeloft_editable", href: (widget.options[:href] or "#"), style: style_string(widget.options, :margin, :padding) do
+        haml_tag :a, widget.button_options do
+          if widget.options[:media] and !widget.options[:media].blank?
+            haml_tag :video do
+              haml_tag :source, {src: widget.options[:media], type: "video/mp4"}
+            end
+          end
           haml_concat(contents) if contents
           block.call if block
         end
