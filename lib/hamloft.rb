@@ -17,6 +17,7 @@ require "hamloft/widget/banner"
 require "hamloft/widget/youtube"
 require "hamloft/widget/yahoo_screen"
 require "hamloft/widget/horizontal_rule"
+require "hamloft/widget/slider"
 
 module Hamloft
   @@_templates = {}

@@ -118,6 +118,21 @@ module Hamloft
         end
       end
     end
+
+    def slider_widget(options={}, &block)
+      widget_block(Widget::Slider.new(options)) do |widget|
+        haml_tag :div, widget.slider_options do
+          block.call if block
+        end
+      end
+    end
+    
+    def slider_item(options={}, &block)
+      haml_tag :div, class: "item" do
+        block.call if block
+        drop_container
+      end
+    end
   
     def banner_widget(options={}, &block)
       widget_block(Widget::Banner.new(options)) do |widget|
