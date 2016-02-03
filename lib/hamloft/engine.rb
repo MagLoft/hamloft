@@ -18,6 +18,14 @@ module Hamloft
       scope_object.instance_eval do
         extend Haml::Helpers
         extend Hamloft::Helpers
+        
+        # Inject widget helpers
+        Hamloft.widgets.each do |widget|
+          if defined?(widget::Helpers)
+            extend widget::Helpers
+          end
+        end
+        
         @haml_buffer = buffer
       end
       begin

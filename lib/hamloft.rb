@@ -6,21 +6,11 @@ require "hamloft/options"
 require "hamloft/style_builder"
 require "hamloft/helpers"
 require "hamloft/template"
-require "hamloft/widget/base"
-require "hamloft/widget/container"
-require "hamloft/widget/columns"
-require "hamloft/widget/image"
-require "hamloft/widget/heading"
-require "hamloft/widget/button"
-require "hamloft/widget/paragraph"
-require "hamloft/widget/banner"
-require "hamloft/widget/youtube"
-require "hamloft/widget/yahoo_screen"
-require "hamloft/widget/horizontal_rule"
-require "hamloft/widget/slider"
+require "hamloft/widget"
 
 module Hamloft
   @@_templates = {}
+  @@_widgets = []
   
   def self.render(haml, variables={})
     Hamloft::Engine.new(haml, remove_whitespace: true).render(Object.new, variables)
@@ -28,6 +18,14 @@ module Hamloft
   
   def self.register_template(key, template)
     @@_templates[key] = template
+  end
+  
+  def self.register_widget(klass)
+    @@_widgets.push(klass)
+  end
+  
+  def self.widgets
+    @@_widgets
   end
   
   def self.template(key)
