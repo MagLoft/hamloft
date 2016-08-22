@@ -4,6 +4,11 @@ module Hamloft
     def style_string(options, *args, &block)
       Hamloft::StyleBuilder.new(options, args).process(block)
     end
+    
+    def block(identifier)
+      haml_contents = File.read("src/themes/#{@_haml_locals[:theme]}/blocks/#{identifier}.haml")
+      Hamloft.render(haml_contents, theme: @_haml_locals[:theme], base_path: @_haml_locals[:base_path])
+    end
 
     # styles
     def asset(url)
