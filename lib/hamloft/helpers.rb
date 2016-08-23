@@ -15,7 +15,7 @@ module Hamloft
       "#{Hamloft::Options.defaults[:asset_uri]}/themes/#{@_haml_locals[:theme]}/#{url}"
     end
     
-    def var(key, default="")
+    def var(key, default=nil)
       variable(:variables)[key.to_sym] || default
     end
   
