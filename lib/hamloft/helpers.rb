@@ -5,14 +5,18 @@ module Hamloft
       Hamloft::StyleBuilder.new(options, args).process(block)
     end
     
-    def block(identifier)
+    def block(identifier, variables={})
       haml_contents = File.read("src/themes/#{@_haml_locals[:theme]}/blocks/#{identifier}.haml")
-      Hamloft.render(haml_contents, theme: @_haml_locals[:theme], base_path: @_haml_locals[:base_path])
+      Hamloft.render(haml_contents, theme: @_haml_locals[:theme], base_path: @_haml_locals[:base_path], variables: variables)
     end
 
     # styles
     def asset(url)
       "#{Hamloft::Options.defaults[:asset_uri]}/themes/#{@_haml_locals[:theme]}/#{url}"
+    end
+    
+    def var(key, default="")
+      variable(:variables)[key.to_sym] || default
     end
   
     def variable(key, default=false)
