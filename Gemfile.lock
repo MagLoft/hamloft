@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    hamloft (0.1.9)
+    hamloft (0.2.0)
       haml (~> 4.0)
       nokogiri (~> 1.6)
 
