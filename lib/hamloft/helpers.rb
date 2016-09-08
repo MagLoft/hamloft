@@ -7,7 +7,7 @@ module Hamloft
     
     def block(identifier, variables={})
       haml_contents = Hamloft.block_resolver.resolve(identifier, @_haml_locals)
-      Hamloft.render(haml_contents, theme: @_haml_locals[:theme], base_path: @_haml_locals[:base_path], variables: variables)
+      Hamloft.render(haml_contents, @_haml_locals.merge(variables))
     end
 
     # styles

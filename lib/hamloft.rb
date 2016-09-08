@@ -26,7 +26,7 @@ module Hamloft
   end
   
   def self.asset_uri
-    @@_asset_uri
+    @@_asset_uri || "."
   end
   
   def self.render(haml, variables={})
