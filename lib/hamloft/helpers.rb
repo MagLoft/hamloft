@@ -12,11 +12,15 @@ module Hamloft
 
     # styles
     def asset(url)
-      "#{Hamloft::Options.defaults[:asset_uri]}/themes/#{@_haml_locals[:theme]}/#{url}"
+      "#{asset_uri}/themes/#{@_haml_locals[:theme]}/#{url}"
     end
     
     def root_asset(url)
-      "#{Hamloft::Options.defaults[:asset_uri]}/#{url}"
+      "#{asset_uri}/#{url}"
+    end
+    
+    def asset_uri
+      @_haml_locals[:asset_uri] || Hamloft.asset_uri
     end
     
     def var(key, default=nil)

@@ -2,7 +2,6 @@ require "haml"
 require "erb"
 require "nokogiri"
 require "hamloft/engine"
-require "hamloft/options"
 require "hamloft/style_builder"
 require "hamloft/helpers"
 require "hamloft/template"
@@ -12,6 +11,7 @@ module Hamloft
   @@_templates = {}
   @@_widgets = []
   @@_block_resolver = nil
+  @@_asset_uri = nil
   
   def self.block_resolver=(resolver)
     @@_block_resolver = resolver
@@ -19,6 +19,14 @@ module Hamloft
   
   def self.block_resolver
     @@_block_resolver
+  end
+
+  def self.asset_uri=(asset_uri)
+    @@_asset_uri = asset_uri
+  end
+  
+  def self.asset_uri
+    @@_asset_uri
   end
   
   def self.render(haml, variables={})
