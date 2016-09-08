@@ -1,12 +1,9 @@
 module Hamloft
   class Options
-
     @defaults = {
-      :asset_uri            => "http://localhost:3000"
+      asset_uri: "http://localhost:3000"
     }
 
-    # The default option values.
-    # @return Hash
     def self.defaults
       @defaults
     end
@@ -19,15 +16,10 @@ module Hamloft
       yield if block_given?
     end
 
-    # Retrieve an option value.
-    # @param key The value to retrieve.
     def [](key)
       send key
     end
 
-    # Set an option value.
-    # @param key The key to set.
-    # @param value The value to set for the key.
     def []=(key, value)
       send "#{key}=", value
     end
@@ -37,6 +29,5 @@ module Hamloft
     def defaults
       self.class.defaults
     end
-
   end
 end

@@ -11,6 +11,15 @@ require "hamloft/widget"
 module Hamloft
   @@_templates = {}
   @@_widgets = []
+  @@_block_resolver = nil
+  
+  def self.block_resolver=(resolver)
+    @@_block_resolver = resolver
+  end
+  
+  def self.block_resolver
+    @@_block_resolver
+  end
   
   def self.render(haml, variables={})
     Hamloft::Engine.new(haml, remove_whitespace: true).render(Object.new, variables)
@@ -31,5 +40,4 @@ module Hamloft
   def self.template(key)
     @@_templates[key]
   end
-  
 end

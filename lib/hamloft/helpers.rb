@@ -6,7 +6,7 @@ module Hamloft
     end
     
     def block(identifier, variables={})
-      haml_contents = File.read("src/themes/#{@_haml_locals[:theme]}/blocks/#{identifier}.haml")
+      haml_contents = Hamloft.block_resolver.resolve(identifier, @_haml_locals)
       Hamloft.render(haml_contents, theme: @_haml_locals[:theme], base_path: @_haml_locals[:base_path], variables: variables)
     end
 
@@ -16,7 +16,7 @@ module Hamloft
     end
     
     def var(key, default=nil)
-      variable(:variables)[key.to_sym] || default
+      variable(:variables, {})[key.to_sym] || default
     end
   
     def variable(key, default=false)
