@@ -26,7 +26,7 @@ module Hamloft
         @haml_buffer = buffer
       end
       begin
-        eval(@compiler.precompiled_with_return_value, scope, @options[:filename], @options[:line])
+        eval(compiler.precompiled_with_return_value, scope, @options[:filename], @options[:line])
       rescue ::SyntaxError => e
         raise SyntaxError, e.message
       end

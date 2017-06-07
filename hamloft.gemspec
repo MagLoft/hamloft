@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.homepage    = "http://www.magloft.com"
   s.summary     = "Hamloft - MagLoft Widget Parser."
   s.description = "This gem contains template built parser for creating MagLoft theme templates."
-  s.add_runtime_dependency 'haml', "~> 4.0"
+  s.add_runtime_dependency 'haml', "~> 5.0"
   s.add_runtime_dependency "nokogiri", "~> 1.8"
   s.add_development_dependency "rspec", "~> 3.6"
   s.add_development_dependency "pry", "~> 0.10"
