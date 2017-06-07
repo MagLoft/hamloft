@@ -4,7 +4,7 @@ module Hamloft
     attr_accessor :options
 
     def identifier
-      "base"
+      'base'
     end
 
     def defaults
@@ -14,10 +14,10 @@ module Hamloft
     def initialize(options)
       @options = defaults.merge(options)
     end
-  
+
     def typeloft_widget_options
       attributes = {
-        :class => "_typeloft_widget",
+        :class => '_typeloft_widget',
         :"data-widget-identifier" => identifier
       }
       @options.each do |k, v|
@@ -25,6 +25,5 @@ module Hamloft
       end
       attributes
     end
-  
   end
 end
