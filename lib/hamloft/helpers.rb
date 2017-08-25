@@ -75,11 +75,10 @@ module Hamloft
       haml_tag :div, class: '_typeloft_widget_drop_container'
     end
 
-    # widgets
-
-    def widget_block(widget, &block)
-      haml_tag :div, widget.typeloft_widget_options do
-        yield(widget) if block
+    def widget(identifier, options={}, &block)
+      widget = Hamloft.widgets[identifier].new(options, self)
+      haml_tag :widget, widget.widget_options do
+        widget.template(&block)
       end
     end
   end

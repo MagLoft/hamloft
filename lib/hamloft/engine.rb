@@ -19,7 +19,7 @@ module Hamloft
         extend Hamloft::Helpers
 
         # Inject widget helpers
-        Hamloft.widgets.each do |widget|
+        Hamloft.widgets.values.each do |widget|
           extend widget::Helpers if defined?(widget::Helpers)
         end
 

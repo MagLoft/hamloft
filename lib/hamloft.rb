@@ -5,11 +5,10 @@ require 'hamloft/engine'
 require 'hamloft/style_builder'
 require 'hamloft/helpers'
 require 'hamloft/template'
-require 'hamloft/widget'
 
 module Hamloft
   @@_templates = {}
-  @@_widgets = []
+  @@_widgets = {}
   @@_block_resolver = nil
   @@_asset_uri = nil
 
@@ -37,8 +36,8 @@ module Hamloft
     @@_templates[key] = template
   end
 
-  def self.register_widget(klass)
-    @@_widgets.push(klass)
+  def self.register_widget(identifier, klass)
+    @@_widgets[identifier] = klass
   end
 
   def self.widgets

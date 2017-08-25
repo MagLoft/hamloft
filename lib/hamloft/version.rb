@@ -1,3 +1,3 @@
 module Hamloft
-  VERSION = '0.2.6'.freeze
+  VERSION = '2.0.2'.freeze
 end
