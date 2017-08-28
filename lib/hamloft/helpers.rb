@@ -77,7 +77,7 @@ module Hamloft
 
     def widget(identifier, options={}, &block)
       widget = Hamloft.widgets[identifier].new(options, self)
-      haml_tag :widget, widget.widget_options do
+      haml_tag "#{identifier}-widget", widget.widget_options do
         widget.template(&block)
       end
     end
