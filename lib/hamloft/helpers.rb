@@ -41,10 +41,7 @@ module Hamloft
       end
     end
 
-    def link(href, referrer = 'Baker', &block)
-      if referrer && !referrer.empty? && !href.include?('referrer=')
-        href = "#{href}#{href.include?('?') ? '&' : '?'}referrer=#{referrer}"
-      end
+    def link(href, &block)
       haml_tag :a, href: href do
         yield if block
       end
